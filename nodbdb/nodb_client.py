@@ -5,13 +5,16 @@ from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, D
 def get_explanations():
     return "Chillax, 'tis just a storage"
 
-def query_a_csv_blob(a_query, a_blob_url):
+def query_a_csv(a_query, a_blob_url):
 
     blob_client = BlobClient.from_blob_url(blob_url= a_blob_url)
     qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedTextDialect(has_header=True), encoding='utf-8')
     return csv.reader(qa_reader.records())
 
 def query_a_json(a_query, a_blob_url):
+    return "TBI (to be implemented) :D"
+
+def read_the_news():
     return "TBI (to be implemented) :D"
 
 #In the future refactor to class

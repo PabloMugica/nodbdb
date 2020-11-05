@@ -10,7 +10,7 @@ query = initvars.query
 #Timing: make the query and get results
 start = time.perf_counter()
 
-csv_reader = nodb_client.query_a_csv_blob(query, blob_url) 
+csv_reader = nodb_client.query_a_csv(query, blob_url) 
 
 print(f'What da ... is this?: {nodb_client.get_explanations()}')
 
