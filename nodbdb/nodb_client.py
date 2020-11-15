@@ -5,16 +5,23 @@ from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, D
 def get_explanations():
     return "Chillax, 'tis just a storage"
 
-def query_a_csv(a_query, a_blob_url):
+def query(a_query, a_blob_url, a_file_type):
 
-    blob_client = BlobClient.from_blob_url(blob_url= a_blob_url)
-    qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedTextDialect(has_header=True), encoding='utf-8')
-    return csv.reader(qa_reader.records())
-
-def query_a_json(a_query, a_blob_url):
-    return "TBI (to be implemented) :D"
+    if a_file_type == 'csv':
+        blob_client = BlobClient.from_blob_url(blob_url= a_blob_url)
+        qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedTextDialect(has_header=True), encoding='utf-8')
+        return csv.reader(qa_reader.records())
+    elif a_file_type == 'json':
+        print("Here goes the result when querying a json. TBI (to be implemented) :D")
+        return 
+    else:
+        print(f"Sorry, can't query a {a_file_type} file type")
+        return
 
 def read_the_news():
+    return "This would read the change feed. TBI (to be implemented) :D"
+
+def query_a_dir():
     return "TBI (to be implemented) :D"
 
 #In the future refactor to class

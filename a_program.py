@@ -10,16 +10,19 @@ query = initvars.query
 #Timing: make the query and get results
 start = time.perf_counter()
 
-csv_reader = nodb_client.query_a_csv(query, blob_url) 
+csv_reader = nodb_client.query(query, blob_url, 'fefo-fefo') 
 
 print(f'What da ... is this?: {nodb_client.get_explanations()}')
 
 end = time.perf_counter()
 
 #Loop through results, issue:find out why there are empty rows
-for row in csv_reader:
-    if row:
-        print(str(row)) #print("*".join(row))
+if csv_reader is None:
+    print("No result found. Sorry, better luck nextime ¯\_(ツ)_/¯")
+else:
+    for row in csv_reader:
+        if row:
+            print(str(row)) #print("*".join(row))
 
-#Show *very precise* elapsed seconds
+#Show (in sarcastic voice) *very precise* elapsed seconds
 print(f"Time taken is {end - start}")
