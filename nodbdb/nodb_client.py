@@ -1,16 +1,21 @@
 import sys, csv, time 
 from multiprocessing import Pool
+from os.path import splitext as get_ext
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 
 def get_explanations():
-    return "Chillax, 'tis just a storage"
+    return "Sorry human, I thought 'twas a good idea"
 
-def query(a_query, a_blob_url, a_file_type):
-    if a_file_type == 'csv':
-        blob_client = BlobClient.from_blob_url(blob_url= a_blob_url)
+def query(a_query, a_blob_url, a_sas_key):
+   
+    # here get the file type 
+    a_file_name, a_file_type = get_ext(a_blob_url)
+
+    if a_file_type == '.csv':
+        blob_client = BlobClient.from_blob_url(blob_url= a_blob_url + a_sas_key)
         qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedTextDialect(has_header=True), encoding='utf-8')
         return csv.reader(qa_reader.records())
-    elif a_file_type == 'json':
+    elif a_file_type == '.json':
         print("Here goes the result when querying a json. TBI (to be implemented) :D")
         return 
     else:
