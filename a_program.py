@@ -1,7 +1,7 @@
+#init vars from a file named initvars.py (am I not enormously creative?)
 import sys, csv, time, initvars
 from nodbdb import nodb_client
 
-#init vars from a file named initvars.py (am I not enormously creative?)
 #blob_url has both the url + sas sign
 blob_url = initvars.a_blob_url
 sas_key = initvars.adlsas_key
@@ -9,10 +9,13 @@ sas_key = initvars.adlsas_key
 #a query like "SELECT * FROM BlobStorage WHERE Tail_Number = 'N706JB'"
 query = initvars.query
 
-#Timing: make the query and get results
+#Query single file and time it
 start = time.perf_counter()
 csv_reader = nodb_client.query(query, blob_url, sas_key) 
 end = time.perf_counter()
+
+#Query a dir
+#Code
 
 #Loop through results, issue:find out why there are empty rows
 if csv_reader is None:
