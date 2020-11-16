@@ -8,7 +8,7 @@ def get_explanations():
 
 def query(a_query, a_blob_url, a_sas_key):
    
-    # here get the file type 
+    #Get the file extension/type 
     a_file_name, a_file_type = get_ext(a_blob_url)
 
     if a_file_type == '.csv':
