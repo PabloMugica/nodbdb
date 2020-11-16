@@ -4,11 +4,19 @@ Well, it's a helper to query files in an Azure blob/data lake storage using http
 As you do in a DB, but it's not a DB. 
 
 ## Use Case
-Imagine you have a couple of files in an Azure Data Lake Storage, csv and/or json files. Say you need to query and/or make simple aggregations about information in them.
+Imagine you have a couple of files in an Azure Data Lake Storage, csv and/or json files. Say you need to query and/or make simple aggregations about information in them. You don't have to have it in *real time*, you know sql and know how to throw a couple of lines of python too. You start thinking in a creative way to do it when...
 
-***A rabbit hole opens right in front of your eyes***<BR>
-***And a pack of consultants emerges from it saying: We have THE Solution!***
+***A rabbit hole opens right in front of your eyes.***
+
+***A pack of consultants emerges from it, almost shouting in unison:*** 
+>**We have THE Solution!**
+
+Then they started each their own monotone monologue.<br>
+Consultant 1: "You should create a notebook in Azure Databricks!!!"
+Consultant 2: "You can use Polybase from a Synapse Analytics instance!!!"<br>
+Consultant 3: "You need to create a Synapse Analytics *PREVIEW* Workspace and then you can choose either SQL or Spark to query them!!!<br>
+There was a Consultant 4 a little behind, looking down and murmuring: "You could've done it just fine with Azure Data Lake Analytics"
 
 _... to be continued ..._
 ## Futures
-* Make this a CLI tool
+- Make this a CLI tool
