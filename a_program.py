@@ -3,26 +3,24 @@ import sys, csv, time, initvars
 from nodbdb import nodb_client
 
 #blob_url has both the url + sas sign
-blob_url = initvars.a_blob_url
+blob_url = initvars.a_csv_blob_url
 sas_key = initvars.adlsas_key
-
 #a query like "SELECT * FROM BlobStorage WHERE Tail_Number = 'N706JB'"
-query = initvars.query
+query = initvars.query_csv
 
 #Query single file and time it
 start = time.perf_counter()
-csv_reader = nodb_client.query(query, blob_url, sas_key) 
+blob_reader = nodb_client.query(query, blob_url, sas_key) 
 end = time.perf_counter()
 
 #Query a dir
 #Code
 
 #Loop through results, issue:find out why there are empty rows
-if csv_reader is None:
+if blob_reader is None:
     print("No result found. Sorry human, better luck nextime ¯\_(ツ)_/¯")
 else:
-    for row in csv_reader:
-        if row:
-            print(str(row)) #print("*".join(row))
+    print(blob_reader)
+    
 #Show (in sarcastic voice) *very precise* elapsed seconds
 print(f"Time taken is {end - start}")
