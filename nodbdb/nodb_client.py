@@ -21,9 +21,7 @@ def query(a_query, a_blob_url, a_sas_key):
     else:
         print(f"Sorry, can't query a {a_file_type} file type")
 
-    blob_reader = qa_reader.records()
-    return blob_reader
-        
+    return qa_reader    
 
 def query_a_dir():
     # Should it have to have a recursive option, a starmap_async exec?
@@ -37,4 +35,3 @@ def query_a_dir():
 
 def read_the_news():
     return "This would read the change feed. TBI (to be implemented) :D"
-#In the future refactor to class
