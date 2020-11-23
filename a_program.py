@@ -2,11 +2,11 @@
 import sys, csv, time, initvars
 from nodbdb import nodb_client
 
-blob_url = initvars.a_json_blob_url
+blob_url = initvars.a_csv_blob_url
 sas_key = initvars.adlsas_key
 
 #a sql query like "SELECT * FROM BlobStorage WHERE Tail_Number = 'N706JB'"
-query = initvars.query_json
+query = initvars.query_csv
 
 #Query single file
 blob_reader = nodb_client.query(query, blob_url, sas_key) 

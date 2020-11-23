@@ -27,4 +27,7 @@ While I'm hopefully learning and working on ending this, here's a very good expl
 - Query a csv file
 - Query a json file
 ### Futures
-- Make this a CLI tool through Python Fire
+- ~~Make this a CLI tool using Python Fire~~ Done ✓
+- Make this a CLI tool using click framework
+- Read configuration from json file
+- Query a folder

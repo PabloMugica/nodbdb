@@ -1,7 +1,12 @@
-import time 
-from multiprocessing import Pool
+import os, time, fire, json
+#from multiprocessing import Pool
 from os.path import splitext as get_ext
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, DelimitedJsonDialect, BlobQueryError
+
+BASE_PATH = os.path.dirname(os.path.realpath(__file__))
+
+with open(BASE_PATH+'/config.json') as json_data_file:                                                                                                                            
+    data = json.load(json_data_file)
 
 def get_explanations():
     return "Sorry human, I thought 'twas a good idea"
@@ -22,7 +27,6 @@ def query(a_query, a_blob_url, a_sas_key):
         qa_reader = "We'll do something about this"
     else:
         print(f"Sorry, can't query a {a_file_type} file type")
-
     end = time.perf_counter()
     #Show (sarcastic voice) *usefully accurate* elapsed seconds and return records
     print(f"Time taken to getr results {end - start} seconds")
@@ -40,3 +44,11 @@ def query_a_dir():
 
 def read_the_news():
     return "This would read the change feed. TBI (to be implemented) :D"
+
+def main():
+    #data
+    fire.Fire()
+
+if __name__ == '__main__':
+    """ Helper to query json and/or csv files on a Datalake Gen2 """
+    main()

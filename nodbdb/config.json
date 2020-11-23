@@ -1,0 +1,14 @@
+{
+    "api_data": {
+        "request_url": "https://newapi.xxx.com/api/v1/catalog/list",
+        "post_data" : {"category_ids" : "xxx",
+                        "limit" : "10000"},
+        "my_headers":{"Content-Type": "application/json"}
+    },
+    "adls":{
+        "access_key":"XXXXXXXXX",
+        "path":"XXXXXXXXXXXX/XXX",
+        "file": "XXXXXX",
+        "query_sql": "xxxxxxxxxxx"
+    }
+}
