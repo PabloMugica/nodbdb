@@ -1,4 +1,4 @@
-import sys, csv, time 
+import time 
 from multiprocessing import Pool
 from os.path import splitext as get_ext
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, DelimitedJsonDialect, BlobQueryError
@@ -7,6 +7,7 @@ def get_explanations():
     return "Sorry human, I thought 'twas a good idea"
 
 def query(a_query, a_blob_url, a_sas_key):
+    start = time.perf_counter()
     #Get the file extension/type 
     a_file_name, a_file_type = get_ext(a_blob_url)
 
@@ -17,11 +18,15 @@ def query(a_query, a_blob_url, a_sas_key):
     elif a_file_type    == '.json':
         qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedJsonDialect(delimeter=' '), encoding='utf-8',output_format = DelimitedJsonDialect(delimiter='\n'))
     elif a_file_type    == '.parquet':
+        # TODO: #1 try expand de file to csv and then query it. https://stackoverflow.com/questions/51215166/convert-parquet-to-csv
         qa_reader = "We'll do something about this"
     else:
         print(f"Sorry, can't query a {a_file_type} file type")
 
-    return qa_reader    
+    end = time.perf_counter()
+    #Show (sarcastic voice) *usefully accurate* elapsed seconds and return records
+    print(f"Time taken to getr results {end - start} seconds")
+    return qa_reader.records()    
 
 def query_a_dir():
     # Should it have to have a recursive option, a starmap_async exec?
