@@ -8,7 +8,7 @@
     "adls":{
         "access_key":"XXXXXXXXX",
         "path":"XXXXXXXXXXXXXXX",
-        "file": "XXXXXX",
+        "file": "XXXX",
         "query_sql": "xxxxxxxxxxx"
     }
 }
