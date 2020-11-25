@@ -203,3 +203,4 @@ $RECYCLE.BIN/
 
 initvars.py
 sanbox.py
+nodbdb/config.json
