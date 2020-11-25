@@ -8,10 +8,8 @@ BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 with open(BASE_PATH+'/config.json') as json_data_file:                                                                                                                            
     data = json.load(json_data_file)
 
-def get_explanations():
-    return "Sorry human, I thought 'twas a good idea"
-
 def query(a_query, a_blob_url, a_sas_key):
+    """ Helper to query json and/or csv files on a Datalake Gen2 """
     start = time.perf_counter()
     #Get the file extension/type 
     a_file_name, a_file_type = get_ext(a_blob_url)
@@ -33,6 +31,7 @@ def query(a_query, a_blob_url, a_sas_key):
     return qa_reader.records()    
 
 def query_a_dir():
+    """TBI (to be implemented) :D"""
     # Should it have to have a recursive option, a starmap_async exec?
     # some_args = []
     # pool = Pool()
@@ -40,15 +39,15 @@ def query_a_dir():
     # print("main script")
     # print(result.get())
     # print("end main script")
-    return "TBI (to be implemented) :D"
+    return 
 
 def read_the_news():
-    return "This would read the change feed. TBI (to be implemented) :D"
-
-def main():
-    #data
-    fire.Fire()
+    """This would read the change feed. TBI (to be implemented) :D"""
+    return
 
 if __name__ == '__main__':
-    """ Helper to query json and/or csv files on a Datalake Gen2 """
-    main()
+    #data
+    fire.Fire({
+        "query": query,
+        "read_the_news": read_the_news
+    })

@@ -1,6 +1,6 @@
 {
     "api_data": {
-        "request_url": "https://newapi.xxx.com/api/v1/catalog/list",
+        "request_url": "https://some.xxx.com/api/v1/catalog/list",
         "post_data" : {"category_ids" : "xxx",
                         "limit" : "10000"},
         "my_headers":{"Content-Type": "application/json"}
