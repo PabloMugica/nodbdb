@@ -26,8 +26,8 @@ While I'm hopefully learning and working on ending this, here's a very good expl
 - Access via URI + SAS key
 - Query a csv file
 - Query a json file
-### Futures
-- ~~Make this a CLI tool using Python Fire~~ Done ✓
-- Make this a CLI tool using click framework
+- Client works as a CLI tool (with Python Fire)
 - Read configuration from json file
+### Futures
 - Query a folder
+- Make this a CLI tool using click framework (wish listed)
