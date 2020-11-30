@@ -1,10 +1,10 @@
-# nodbdb
+## nodbdb
 
 Well, it's a helper to query files in an Azure blob/data lake storage using Azure Storage [Query Acceleration](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-query-acceleration).<br>
 As you do in a DB.<br>
 But it's not a DB.  
 
-## Use Case
+### Use Case
 Imagine you have a couple of files in an Azure Data Lake Storage, csv and/or json files. Say you need to query and/or make simple aggregations about information in them. You don't have to have it in *real time*, you know sql and know how to throw a couple of lines of python too. You start thinking in a creative way to do it when...
 
 ***A rabbit hole opens right in front of your eyes.***
