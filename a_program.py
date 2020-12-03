@@ -11,14 +11,14 @@ query = initvars.query_csv
 #Query single file
 blob_reader = nodb_client.query(query, blob_url, sas_key) 
 
-
 #Query a dir
 #Code
 
 #Loop through results, issue:find out why there are empty rows
-if blob_reader is None:
-    print("No result found. Sorry human, better luck nextime ¯\_(ツ)_/¯")
-else:
-    for row in blob_reader:
-        if row:
-            print(row)
+# if blob_reader is None:
+#     print("No result found. Sorry human, better luck nextime ¯\_(ツ)_/¯")
+# else:
+#     for row in blob_reader:
+#         if row:
+#             print(row)
+print(blob_reader)

@@ -24,9 +24,12 @@ def query(a_query = store_conn['query_sql'], a_blob_url = store_conn['file_csv']
     elif a_file_type    == '.json':
         qa_reader = blob_client.query_blob(a_query, blob_format=DelimitedJsonDialect(delimeter=' '), encoding='utf-8',output_format = DelimitedJsonDialect(delimiter='\n'))
     elif a_file_type    == '.parquet':
-        qa_reader = "We'll do something about this"
+        qa_reader = None
+        print("We'll do something about this")
     else:
+        qa_reader = None
         print(f"Sorry, can't query a {a_file_type} file type")
+        
     end = time.perf_counter()
     #Show (sarcastic voice) *usefully accurate* elapsed seconds and return records
     print(f"Time taken to get results {end - start} seconds")
@@ -38,7 +41,7 @@ def query(a_query = store_conn['query_sql'], a_blob_url = store_conn['file_csv']
             if row:
                 result_set.append(row)
     
-    return result_set #qa_reader.records()    
+    return result_set
 
 def query_dir():
     """TBI (to be implemented) :D"""
@@ -56,7 +59,7 @@ def read_the_news():
     return
 
 if __name__ == '__main__':
-    
+    #query()
     fire.Fire({
         "query": query,
         "query_dir": query_dir,
