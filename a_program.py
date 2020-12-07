@@ -1,5 +1,5 @@
 #init vars from a file named initvars.py (am I not enormously creative?)
-import sys, csv, time, initvars
+import initvars
 from nodbdb import nodb_client
 
 blob_url = initvars.a_csv_blob_url
@@ -12,13 +12,6 @@ query = initvars.query_csv
 blob_reader = nodb_client.query(query, blob_url, sas_key) 
 
 #Query a dir
-#Code
 
-#Loop through results, issue:find out why there are empty rows
-# if blob_reader is None:
-#     print("No result found. Sorry human, better luck nextime ¯\_(ツ)_/¯")
-# else:
-#     for row in blob_reader:
-#         if row:
-#             print(row)
+#Results
 print(blob_reader)
