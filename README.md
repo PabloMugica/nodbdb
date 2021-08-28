@@ -12,7 +12,7 @@ Imagine you have a couple of files in an Azure Data Lake Storage, csv and/or jso
 ***A pack of consultants emerges from it, almost shouting in unison:*** 
 >**We have THE Solution!**
 
-Then they started each their own monotone monologue.<br>
+Then they started each their own monotone monologue, meaning they were boringly stepping over each other's words.<br>
 Consultant 1: "You should create a notebook in Azure Databricks!!!"<br>
 Consultant 2: "You can use Polybase from a Synapse Analytics instance!!!"<br>
 Consultant 3: "You need to create a Synapse Analytics Workspace and then you can choose either SQL or Spark to query them!!!<br>
